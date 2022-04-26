@@ -1,21 +1,30 @@
 import React, { useState } from "react";
-
+import "./App.css";
 const DisplayGames = (props) => {
   return (
     <div>
       <div>
+        <table id="customers">
+          <tr>
+            <td id="customers-color">Title</td>
+            <td id="customers-color">Platform</td>
+            <td id="customers-color">Release Year</td>
+            <td id="customers-color">Publisher</td>
+          </tr>
+        </table>
+
         {props.games.map((game, index) => {
           return (
             <div>
-              <table>
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{game.name}</td>
-                  <td>{game.platform}</td>
-                  <td>{game.year}</td>
-                  <td>{game.publisher}</td>
-                  <td>{}</td>
-                </tr>
+              <table id="customers">
+                <tbody>
+                  <tr>
+                    <td>{game.name}</td>
+                    <td>{game.platform}</td>
+                    <td>{game.year}</td>
+                    <td>{game.publisher}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           );
