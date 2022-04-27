@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+
 const DisplayGames = (props) => {
   return (
     <div>
@@ -13,9 +14,9 @@ const DisplayGames = (props) => {
           </tr>
         </table>
 
-        {props.games.map((game, index) => {
+        {props.games.map((game) => {
           return (
-            <div>
+            <div key={game.id}>
               <table id="customers">
                 <tbody>
                   <tr>
