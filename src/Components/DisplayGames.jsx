@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const DisplayGames = (props) => {
+const DisplayGames = ({ games }) => {
   return (
     <div>
       <div>
@@ -14,7 +14,7 @@ const DisplayGames = (props) => {
           </tr>
         </table>
 
-        {props.games.map((game) => {
+        {games.map((game) => {
           return (
             <div key={game.id}>
               <table id="customers">

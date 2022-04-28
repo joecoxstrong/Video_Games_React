@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
+import "./App.css";
 
 const DisplayPlatformStats = ({ games }) => {
   function generateDataForChart() {
     // console.log(games);
 
-    let filteredGames = games.filter((game) => game.year >= 2013);
+    let filteredGames = games.filter((game) => game.year > 2013);
     // console.log("Filter Games: ", filteredGames);
 
     let platforms = filteredGames.map((game) => {
@@ -36,7 +37,10 @@ const DisplayPlatformStats = ({ games }) => {
       return [platform, totalGlobalSalesByPlatform, "silver"];
     });
     // console.log("Platform Arrays: ", platformArrays);
-    const data = [["Platform", "Sales", { role: "style" }], ...platformArrays];
+    const data = [
+      ["Platform", "Global Sales in Millions", { role: "style" }],
+      ...platformArrays,
+    ];
 
     // ["PS3", 8.94, "silver"],
     //   ["Silver", 10.49, "silver"],
@@ -46,7 +50,7 @@ const DisplayPlatformStats = ({ games }) => {
   }
   return (
     <div>
-      <h1>Platform By Global Sales in Millions</h1>
+      <h1 className="graph-header">Platform By Global Sales in Millions</h1>
       <Chart
         chartType="ColumnChart"
         width="100%"

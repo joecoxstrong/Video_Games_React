@@ -1,30 +1,33 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [search, setSearch] = useState();
-  function searchGames(rows) {
-    const columns = rows[0] && Object.keys(rows[0]);
-    return rows.filter((row) =>
-      columns.some(
-        (column) =>
-          row[column].toString().toLowerCase().indexOf(search.toLowerCase()) >
-          -1
-      )
-    );
-  }
 
   //   function handleSubmit(event) {
   //     event.preventDefault();
   //     props.searchGame(search);
   //     setSearch();
   //   }
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    props.searchGames(search);
+    console.log("Finished search with: ", search);
+  };
   return (
-    <input
-      type="text"
-      placeholder="Search Games"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
+    <div>
+      <form onSubmit={handleSearch}>
+        <input
+          name="searchField"
+          type="text"
+          placeholder="Search Games"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
 
     // <div>
     //   <form
