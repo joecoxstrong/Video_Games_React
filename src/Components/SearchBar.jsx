@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const SearchBar = (props) => {
   const [search, setSearch] = useState();
 
@@ -18,6 +18,7 @@ const SearchBar = (props) => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+
         <button type="submit">Search</button>
       </form>
     </div>

@@ -55,8 +55,6 @@ function App() {
 
   return (
     <div>
-      <Nav />
-
       <Routes>
         <Route path="/" element={<Home allGames={allGames} />} />
         <Route

@@ -46,7 +46,7 @@ const DisplayPlatformStats = ({ allGames }) => {
   }
   return (
     <div>
-      <h1 className="graph-header">Platform By Global Sales in Millions</h1>
+      <h1 className="graph-header"> Global Sales By Platform in Millions</h1>
       <Chart
         chartType="ColumnChart"
         width="100%"
