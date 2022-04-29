@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
-const DisplayGames = ({ games }) => {
+const DisplayGames = (props) => {
   return (
     <div>
       <div>
@@ -11,10 +11,11 @@ const DisplayGames = ({ games }) => {
             <td id="customers-color">Platform</td>
             <td id="customers-color">Release Year</td>
             <td id="customers-color">Publisher</td>
+            <td id="customers-color">Game Stats</td>
           </tr>
         </table>
 
-        {games.map((game) => {
+        {props.games.map((game) => {
           return (
             <div key={game.id}>
               <table id="customers">
@@ -24,6 +25,32 @@ const DisplayGames = ({ games }) => {
                     <td>{game.platform}</td>
                     <td>{game.year}</td>
                     <td>{game.publisher}</td>
+
+                    <td>
+                      <div>
+                        {/* <form onSubmit={handleSearch}> */}
+                        {/* <input
+                            name="searchField"
+                            type="text"
+                            placeholder="Search Games"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                          /> */}
+                        {/* <button
+                            name="statsButton"
+                            type="submit"
+                            value={game.name}
+                            onChange={(e) => setSearch(e.target.value)}
+                            onClick={handleSearch}
+                          >
+                            VIEW STATS
+                          </button>
+                        </form> */}
+                      </div>
+                      <button onClick={props.DisplayPlatformStats}>
+                        VIEW STATS
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -36,26 +63,3 @@ const DisplayGames = ({ games }) => {
 };
 
 export default DisplayGames;
-
-// export default function DisplayGames({ games }) {
-//   const columns = games[0] && Object.keys(games[0]);
-
-//   return (
-//     <div key={games.id}>
-//       <table>
-//         <thead>
-//           <tr>{games[0] && columns.map((heading) => <th>{heading}</th>)}</tr>
-//         </thead>
-//         <tbody>
-//           {games.map((row) => (
-//             <tr>
-//               {columns.map((column) => (
-//                 <td>{row[column]}</td>
-//               ))}
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }

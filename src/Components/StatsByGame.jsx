@@ -2,12 +2,12 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import "./App.css";
 
-const DisplayPlatformStats = ({ allGames }) => {
+const StatsByGame = ({ games }) => {
   function generateDataForChart() {
-    console.log(allGames);
+    // console.log(games);
 
-    let filteredGames = allGames.filter((game) => game.year >= 2013);
-    console.log("Filter Games: ", filteredGames);
+    let filteredGames = games.filter((game) => game.year >= 1940);
+    // console.log("Filter Games: ", filteredGames);
 
     let platforms = filteredGames.map((game) => {
       return game.platform;
@@ -46,7 +46,7 @@ const DisplayPlatformStats = ({ allGames }) => {
   }
   return (
     <div>
-      <h1 className="graph-header">Platform By Global Sales in Millions</h1>
+      <h1 className="graph-header">{games.name}'S GLOBAL SALES PER CONSOLE</h1>
       <Chart
         chartType="ColumnChart"
         width="100%"
@@ -57,4 +57,4 @@ const DisplayPlatformStats = ({ allGames }) => {
   );
 };
 
-export default DisplayPlatformStats;
+export default StatsByGame;

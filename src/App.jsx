@@ -3,10 +3,17 @@ import axios from "axios";
 import DisplayGames from "./Components/DisplayGames";
 import DisplayPlatformStats from "./Components/DisplayPlatformStats";
 import SearchBar from "./Components/SearchBar";
+import StatsByGame from "./Components/StatsByGame";
+import { Routes, Route } from "react-router-dom";
+import Nav from "./Components/Nav";
+import "./Components/App.css";
+import { useParams } from "react-router-dom";
+import Home from "./Pages/Home";
+import DisplaySearchedGames from "./Pages/DisplaySearchedGames";
 
 function App() {
   const [games, setGames] = useState([]);
-
+  const [allGames, setAllGames] = useState([]);
   useEffect(() => {
     getAllGames();
   }, []);
@@ -15,7 +22,7 @@ function App() {
   async function getAllGames() {
     try {
       const response = await axios.get(`https://localhost:7260/api/games/`);
-      setGames(response.data);
+      setAllGames(response.data);
       console.log(response.data);
     } catch (ex) {
       console.log(`ERROR in getAllGames EXCEPTION: ${ex}`);
@@ -30,17 +37,48 @@ function App() {
       setGames(response.data);
       console.log("Search Results: ", response.data);
     } catch (ex) {
-      console.log(`ERROR in getAllGames EXCEPTION: ${ex}`);
+      console.log(`ERROR in searchGames EXCEPTION: ${ex}`);
+    }
+  }
+
+  async function viewStatsButton(gameName) {
+    try {
+      const response = await axios.get(
+        `https://localhost:7260/api/games/${gameName}`
+      );
+      setGames(response.data);
+      console.log("Search Results: ", response.data);
+    } catch (ex) {
+      console.log(`ERROR in viewStatsButton EXCEPTION: ${ex}`);
     }
   }
 
   return (
     <div>
-      <SearchBar searchGames={searchGames} />
+      <Nav />
 
-      <DisplayPlatformStats games={games} />
-      <DisplayGames games={games} />
+      <Routes>
+        <Route path="/" element={<Home allGames={allGames} />} />
+        <Route
+          path="/DisplaySearchedGames"
+          element={
+            <DisplaySearchedGames games={games} searchGames={searchGames} />
+          }
+        />
+      </Routes>
     </div>
+
+    //       <div>
+    // <DisplayPlatformStats games={games} />
+    //       </div>
+    // <div>
+    //   <SearchBar searchGames={searchGames} />
+
+    // <DisplayPlatformStats games={games} />
+    //   <StatsByGame games={games} />
+    //   <div></div>
+    //   <DisplayGames games={games} viewStatsButton={viewStatsButton} />
+    // </div>
   );
 }
 

@@ -13,6 +13,7 @@
     border: 1px solid #ddd;
     padding: 8px;
     width: 25%;
+    
   }
   
   #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -23,10 +24,27 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: rgb(142, 11, 168);
     color: white;
     
   }
   .graph-header{
       text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: rgb(28, 28, 95);
+    color: white;
+  }
+
+  .nav-Links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
   }

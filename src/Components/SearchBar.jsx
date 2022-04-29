@@ -1,14 +1,7 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const SearchBar = (props) => {
   const [search, setSearch] = useState();
-
-  //   function handleSubmit(event) {
-  //     event.preventDefault();
-  //     props.searchGame(search);
-  //     setSearch();
-  //   }
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -28,17 +21,6 @@ const SearchBar = (props) => {
         <button type="submit">Search</button>
       </form>
     </div>
-
-    // <div>
-    //   <form
-    //     onSubmit={handleSubmit}
-    //     placeholder="Search Games"
-    //     onChange={(event) => setSearch(event.target.value)}
-    //   >
-    //     <input type="text"></input>
-    //     <button type="submit">Search</button>
-    //   </form>
-    // </div>
   );
 };
 
