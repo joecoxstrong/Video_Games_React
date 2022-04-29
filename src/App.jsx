@@ -10,6 +10,7 @@ import "./Components/App.css";
 import { useParams } from "react-router-dom";
 import Home from "./Pages/Home";
 import DisplaySearchedGames from "./Pages/DisplaySearchedGames";
+import "./Components/App.css";
 
 function App() {
   const [games, setGames] = useState([]);
@@ -54,7 +55,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="background-image">
       <Routes>
         <Route path="/" element={<Home allGames={allGames} />} />
         <Route

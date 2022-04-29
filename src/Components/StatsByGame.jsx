@@ -46,7 +46,7 @@ const StatsByGame = ({ games }) => {
   }
   return (
     <div>
-      <h1 className="graph-header">{games.name}'S GLOBAL SALES PER CONSOLE</h1>
+      <h1 className="graph-header">GLOBAL SALES PER CONSOLE</h1>
       <Chart
         chartType="ColumnChart"
         width="100%"
