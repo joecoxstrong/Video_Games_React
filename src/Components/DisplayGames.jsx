@@ -1,7 +1,13 @@
 import React from "react";
 import "./App.css";
+import { Link } from "react-router-dom";
+import StatsByGame from "./StatsByGame";
 
 const DisplayGames = (props) => {
+  function clicked(game) {
+    console.log("This game is " + game);
+    props.searchGames(game);
+  }
   return (
     <div>
       <div>
@@ -27,29 +33,16 @@ const DisplayGames = (props) => {
                     <td>{game.publisher}</td>
 
                     <td>
-                      <div>
-                        {/* <form onSubmit={handleSearch}> */}
-                        {/* <input
-                            name="searchField"
-                            type="text"
-                            placeholder="Search Games"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                          /> */}
-                        {/* <button
-                            name="statsButton"
-                            type="submit"
-                            value={game.name}
-                            onChange={(e) => setSearch(e.target.value)}
-                            onClick={handleSearch}
-                          >
-                            VIEW STATS
-                          </button>
-                        </form> */}
-                      </div>
-                      <button onClick={props.DisplayPlatformStats}>
+                      {/* <Link to="/SingleGameGraph"> */}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          clicked(game);
+                        }}
+                      >
                         VIEW STATS
                       </button>
+                      {/* </Link> */}
                     </td>
                   </tr>
                 </tbody>

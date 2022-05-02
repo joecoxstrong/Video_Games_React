@@ -11,6 +11,8 @@ import { useParams } from "react-router-dom";
 import Home from "./Pages/Home";
 import DisplaySearchedGames from "./Pages/DisplaySearchedGames";
 import "./Components/App.css";
+import SingleGameGraph from "./Pages/SingleGameGraph";
+import gameName from "./Components/DisplayGames";
 
 function App() {
   const [games, setGames] = useState([]);
@@ -62,6 +64,16 @@ function App() {
           path="/DisplaySearchedGames"
           element={
             <DisplaySearchedGames games={games} searchGames={searchGames} />
+          }
+        />
+        <Route
+          path="/SingleGameGraph"
+          element={
+            <SingleGameGraph
+              games={games}
+              searchGames={searchGames}
+              gameName={gameName}
+            />
           }
         />
       </Routes>

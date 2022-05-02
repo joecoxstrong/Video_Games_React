@@ -2,11 +2,11 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import "./App.css";
 
-const StatsByGame = (props) => {
+const ClickedGameStats = ({ gameName }) => {
   function generateDataForChart() {
-    console.log(props.games);
+    // console.log(games);
 
-    let filteredGames = props.games.filter((game) => game.year >= 1940);
+    let filteredGames = gameName.filter((game) => game.year >= 1940);
     // console.log("Filter Games: ", filteredGames);
 
     let platforms = filteredGames.map((game) => {
@@ -57,4 +57,4 @@ const StatsByGame = (props) => {
   );
 };
 
-export default StatsByGame;
+export default ClickedGameStats;
